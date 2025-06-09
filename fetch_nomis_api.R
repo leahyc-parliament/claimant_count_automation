@@ -2,7 +2,7 @@ library(httr2)
 library(readr)
 library(dplyr)
 library(lubridate)
-library(writexl)
+library(openxlsx)
 library(purrr)
 library(stringr)
 
@@ -122,8 +122,7 @@ if (!dir.exists("output_data")) {
   dir.create("output_data")
 }
 timestamp <- format(Sys.time(), "%Y-%m-%d_%H-%M-%S")
-write_xlsx(claimant_count, paste0("output_data/claimant_count_", format(Sys.time(), "%Y-%m-%d_%H-%M-%S"), ".xlsx"))
-
+write.xlsx(claimant_count, paste0("output_data/claimant_count_", format(Sys.time(), "%Y-%m-%d_%H-%M-%S"), ".xlsx"))
 print("File saved successfully!")
 
 
